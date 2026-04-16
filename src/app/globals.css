@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-charcoal bg-warm-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mincho;
+  }
+}
+
+@layer utilities {
+  /* iOS Safari 100dvh fix */
+  .min-h-screen-dvh {
+    min-height: 100dvh;
+  }
+
+  /* Fade-in animation initial state */
+  .fade-in-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+}
