@@ -13,6 +13,7 @@ export type Service = {
   ctaUrl: string;
   ctaNote?: string;
   icon: string;
+  featured?: boolean;
 };
 
 export const services: Service[] = [
@@ -29,6 +30,7 @@ export const services: Service[] = [
     ctaLabel: "単発セッションに申込む",
     ctaUrl: SINGLE_SESSION_URL,
     icon: "💬",
+    featured: true,
   },
   {
     id: "online-salon",

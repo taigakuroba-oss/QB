@@ -6,7 +6,15 @@ type Props = {
 
 export function TestimonialCard({ testimonial }: Props) {
   return (
-    <div className="bg-warm-white rounded-2xl shadow-sm border border-mauve-light/40 p-6 flex flex-col gap-4">
+    <div className="relative bg-warm-white rounded-2xl shadow-sm border border-mauve-light/40 p-7 md:p-8 flex flex-col gap-5 transition-shadow duration-300 hover:shadow-md">
+      {/* Decorative quote mark */}
+      <span
+        className="absolute top-4 right-5 font-cormorant text-6xl text-rose-blush/40 leading-none select-none"
+        aria-hidden="true"
+      >
+        &ldquo;
+      </span>
+
       {/* Stars */}
       <div className="flex gap-0.5" aria-label={`${testimonial.stars}点満点`}>
         {Array.from({ length: 5 }).map((_, i) => (
@@ -20,15 +28,20 @@ export function TestimonialCard({ testimonial }: Props) {
         ))}
       </div>
 
-      {/* Quote */}
-      <p className="font-sans text-sm text-charcoal leading-loose relative before:content-['\u201c'] before:font-cormorant before:text-4xl before:text-rose-blush before:leading-none before:mr-1 after:content-['\u201d'] after:font-cormorant after:text-4xl after:text-rose-blush after:leading-none after:ml-1">
+      {/* Quote text */}
+      <p className="font-sans text-sm text-charcoal leading-loose flex-1 relative z-10">
         {testimonial.text}
       </p>
 
       {/* Client */}
-      <p className="font-sans text-xs text-warm-gray text-right">
-        — {testimonial.client}
-      </p>
+      <div className="flex items-center gap-3 pt-3 border-t border-mauve-light/30">
+        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-rose-blush to-mauve-light text-white font-cormorant italic text-lg shadow-sm">
+          {testimonial.initial}
+        </div>
+        <p className="font-sans text-xs text-warm-gray">
+          {testimonial.client}
+        </p>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ export type Testimonial = {
   stars: number;
   text: string;
   client: string;
+  initial: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -11,23 +12,27 @@ export const testimonials: Testimonial[] = [
     stars: 5,
     text: "うたかのさんのセッションを受けてから、毎朝が楽しみになりました。自分の気持ちをうまく言語化できなかった私が、今では「こうしたい」と迷わず言えるように。本当にありがとうございます。",
     client: "30代・会社員",
+    initial: "M",
   },
   {
     id: "2",
     stars: 5,
     text: "サロンに入ってから、同じ想いを持つ仲間と出会えて、孤独感がなくなりました。うたかのさんの温かいファシリテーションのおかげで、自分のペースで無理なく続けられています。",
     client: "40代・主婦",
+    initial: "Y",
   },
   {
     id: "3",
     stars: 5,
     text: "Udemy講座で基礎をしっかり学んでから単発セッションへ。「自分で考える力」がついてきた実感があります。うたかのさんの説明はとてもわかりやすく、すぐ実践できました。",
     client: "30代・フリーランス",
+    initial: "S",
   },
   {
     id: "4",
     stars: 5,
     text: "「頑張らなくていい」という言葉がずっと心に残っています。セッションの中でたくさん気づきをもらい、自分を責めることが少なくなりました。もっと早く出会いたかったです。",
     client: "20代・会社員",
+    initial: "K",
   },
 ];

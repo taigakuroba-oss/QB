@@ -5,24 +5,39 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
     @apply text-charcoal bg-warm-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-mincho;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: #E8C4C4;
+    color: #3D3535;
+  }
+
+  /* Focus ring base */
+  :focus-visible {
+    outline: none;
   }
 }
 
 @layer utilities {
   /* iOS Safari 100dvh fix */
   .min-h-screen-dvh {
+    min-height: 100vh;
     min-height: 100dvh;
   }
 
-  /* Fade-in animation initial state */
   .fade-in-hidden {
     opacity: 0;
     transform: translateY(24px);
@@ -32,5 +47,17 @@
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+}
+
+/* Reduced motion: respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

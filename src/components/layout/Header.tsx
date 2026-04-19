@@ -1,7 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import { Monogram } from "@/components/ui/Monogram";
 
 const navLinks = [
+  { label: "Concept", href: "#concept" },
   { label: "About", href: "#profile" },
   { label: "Services", href: "#services" },
   { label: "Voice", href: "#testimonials" },
@@ -32,18 +34,22 @@ export function Header() {
         {/* Logo */}
         <a
           href="#hero"
-          className="font-mincho text-xl font-semibold text-charcoal tracking-widest hover:text-rose-deep transition-colors"
+          className="group flex items-center gap-2.5 text-charcoal hover:text-rose-deep transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-deep rounded-md px-1"
+          aria-label="うたかの — トップへ"
         >
-          うたかの
+          <Monogram size={26} className="text-rose-deep group-hover:rotate-12 transition-transform duration-300" />
+          <span className="font-mincho text-xl font-semibold tracking-widest">
+            うたかの
+          </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-cormorant italic text-base text-charcoal hover:text-rose-deep transition-colors"
+              className="font-cormorant italic text-base text-charcoal hover:text-rose-deep transition-colors relative after:absolute after:left-0 after:bottom-[-4px] after:h-px after:w-0 after:bg-rose-deep after:transition-all hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-deep rounded-sm"
             >
               {link.label}
             </a>
@@ -53,7 +59,7 @@ export function Header() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-deep rounded-md"
           aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={menuOpen}
         >
@@ -83,7 +89,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={closeMenu}
-              className="font-mincho text-lg text-charcoal hover:text-rose-deep transition-colors"
+              className="font-mincho text-lg text-charcoal hover:text-rose-deep transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-deep rounded-md"
             >
               {link.label}
             </a>
